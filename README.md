@@ -1,4 +1,4 @@
-# Screen Factory Program
+# Screen Maker Program
 
 This project demonstrates the creation of various screen objects (TV, LED Video Wall) using a factory pattern. It allows users to interactively input parameters and create screens based on their specifications.
 
