@@ -68,13 +68,18 @@ LEDVideoWallAspects::LEDVideoWallAspects(int _panelWidth, int _panelHeight, int 
     if(_aspectHeight == 0 || _aspectWidth == 0)
         throw std::invalid_argument("Aspect ratio dimensions must be greater than 0!");
 
-    int gcd = HelperFunctions::gcd(_aspectHeight, _aspectWidth);
-    int cols = _aspectWidth / gcd;
-    int rows = _aspectHeight / gcd;
-
     setPanelWidth(_panelWidth);
     setPanelHeight(_panelHeight);
 
-    setWallWidth(cols * getPanelWidth());
-    setWallHeight(rows * getPanelHeight());
+    int panels_lcm = HelperFunctions::lcm(_panelWidth, _panelHeight);
+    
+    int cols = (panels_lcm / _panelWidth) * _aspectWidth;
+    int rows = (panels_lcm / _panelHeight) * _aspectHeight;
+
+    int aspects_gcd = HelperFunctions::gcd(cols, rows);
+    cols /= aspects_gcd;
+    rows /= aspects_gcd;
+
+    setWallWidth(cols * _panelWidth);
+    setWallHeight(rows * _panelHeight);
 }

@@ -8,6 +8,11 @@ int HelperFunctions::gcd(int a, int b)
     return gcd(b, a % b);
 }
 
+int HelperFunctions::lcm(int a, int b)
+{
+    return std::abs(a * b) / gcd(a,b);
+}
+
 
 
 

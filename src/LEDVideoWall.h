@@ -13,8 +13,8 @@ public:
 
     int getPanelWidth() const {return this->panelWidth;}
     int getPanelHeight() const {return this->panelHeight;}
-    int getWallWidth() const {return this->wallWidth;}
-    int getWallHeight() const {return this->wallHeight;}
+    long getWallWidth() const {return this->wallWidth;}
+    long getWallHeight() const {return this->wallHeight;}
     int getRows() const {return this->wallHeight / this->panelHeight;}
     int getCols() const {return this->wallWidth / this->panelWidth;}
 
